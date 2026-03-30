@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Harbor Investments — Community-First Impact Investing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset ──────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:300;background:#fff;color:#1a1a1a;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+
+/* ─── Tokens ─────────────────────────────────────────────── */
+:root{
+  --black:#0a0a0a;--ink:#1a1a1a;--mid:#555;--muted:#888;
+  --rule:#e8e8e8;--bg:#f8f8f8;--white:#fff;--green:#1a4a35;
+  --max:1080px;--pad:clamp(20px,5vw,80px);
+}
+
+/* ─── Utilities ──────────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+.label{
+  display:block;font-size:.68rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:32px;
+}
+h1{
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:clamp(2.5rem,5.5vw,4rem);
+  font-weight:400;line-height:1.1;letter-spacing:-.01em;color:var(--black);
+}
+h1 em{font-style:italic;color:var(--muted);}
+h2{
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:clamp(1.6rem,3vw,2.25rem);
+  font-weight:400;line-height:1.18;color:var(--black);
+}
+p{font-size:.9375rem;font-weight:300;color:var(--mid);line-height:1.75;}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:99;
+  height:60px;background:rgba(255,255,255,.95);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.nav-in{
+  max-width:var(--max);margin:0 auto;padding:0 var(--pad);
+  height:100%;display:flex;align-items:center;justify-content:space-between;gap:32px;
+}
+.logo{
+  font-family:'EB Garamond',serif;font-size:1.05rem;
+  font-weight:500;letter-spacing:.03em;color:var(--black);white-space:nowrap;
+}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{
+  font-size:.77rem;font-weight:400;letter-spacing:.05em;
+  color:var(--mid);transition:color .18s;
+}
+.nav-links a:hover{color:var(--black);}
+.nav-btn{
+  font-size:.77rem;font-weight:500;letter-spacing:.06em;
+  color:#fff;background:var(--green);
+  padding:8px 24px;white-space:nowrap;transition:opacity .18s;
+}
+.nav-btn:hover{opacity:.85;}
+
+/* ─── Sections ───────────────────────────────────────────── */
+section{padding:120px 0;border-top:1px solid var(--rule);}
+#hero{border-top:none;padding-top:calc(60px + 96px);}
+#contact{background:var(--black);border-top:none;}
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero-row{
+  display:grid;grid-template-columns:1fr 440px;
+  gap:80px;align-items:center;
+}
+.eyebrow{
+  display:block;font-size:.68rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--green);margin-bottom:24px;
+}
+.hero-sub{margin:24px 0 48px;max-width:420px;}
+.actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.btn-fill{
+  font-size:.78rem;font-weight:500;letter-spacing:.07em;
+  color:#fff;background:var(--green);
+  padding:12px 32px;transition:opacity .18s;white-space:nowrap;
+}
+.btn-fill:hover{opacity:.85;}
+.btn-text{
+  font-size:.78rem;font-weight:400;letter-spacing:.05em;color:var(--mid);
+  border-bottom:1px solid var(--rule);padding-bottom:2px;
+  transition:color .18s,border-color .18s;white-space:nowrap;
+}
+.btn-text:hover{color:var(--black);border-color:#aaa;}
+
+.hero-fig{
+  width:100%;height:300px;background:var(--bg);
+  overflow:hidden;
+}
+.hero-fig svg{width:100%;height:100%;}
+
+/* ─── ABOUT ──────────────────────────────────────────────── */
+.aside-layout{
+  display:grid;grid-template-columns:260px 1fr;
+  gap:80px;align-items:start;
+}
+.stack{display:flex;flex-direction:column;gap:20px;}
+.stats{
+  display:flex;gap:48px;flex-wrap:wrap;
+  margin-top:48px;padding-top:48px;
+  border-top:1px solid var(--rule);
+}
+.stat-n{
+  font-family:'EB Garamond',serif;font-size:2.4rem;
+  font-weight:400;color:var(--black);line-height:1;margin-bottom:4px;
+}
+.stat-l{font-size:.74rem;font-weight:400;color:var(--muted);}
+
+/* ─── MODEL ──────────────────────────────────────────────── */
+.model-head{
+  display:grid;grid-template-columns:260px 1fr;
+  gap:80px;align-items:start;margin-bottom:64px;
+}
+.cards3{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+.card{background:#fff;padding:48px 32px;}
+.card.soft{background:var(--bg);}
+.card-n{
+  font-family:'EB Garamond',serif;font-size:1.5rem;
+  color:var(--rule);display:block;margin-bottom:24px;
+}
+.card h4{
+  font-size:.83rem;font-weight:500;letter-spacing:.04em;
+  color:var(--black);margin-bottom:12px;
+}
+.card p{font-size:.875rem;}
+.card.soft blockquote{
+  font-family:'EB Garamond',serif;font-size:1.1rem;
+  font-style:italic;color:var(--ink);line-height:1.55;
+}
+.card.soft cite{
+  display:block;margin-top:16px;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-style:normal;
+}
+
+/* ─── PLATFORM ───────────────────────────────────────────── */
+.plat-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:end;margin-bottom:64px;
+}
+.plat-header h2{margin-bottom:0;}
+.plat-header p{margin-bottom:0;}
+.plat-phone-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:32px;
+}
+.feat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  width:100%;max-width:880px;
+}
+.feat-item{
+  background:#fff;padding:24px;
+}
+.feat-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--green);margin-bottom:12px;
+}
+.feat-item strong{
+  display:block;font-size:.77rem;font-weight:500;
+  color:var(--ink);margin-bottom:6px;letter-spacing:.02em;
+}
+.feat-item span{font-size:.8rem;color:var(--mid);line-height:1.55;}
+
+.phone-shell{
+  width:300px;height:620px;flex-shrink:0;
+  background:#f8f8f8;
+  border-radius:40px;
+  border:8px solid #111;
+  outline:2px solid #2a2a2a;
+  box-shadow:
+    0 0 0 1px #000,
+    0 32px 72px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  position:relative;overflow:hidden;margin:0 auto;
+}
+.phone-island{
+  position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:84px;height:22px;background:#111;border-radius:12px;z-index:10;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.5);
+}
+.phone-side-btn-r{
+  position:absolute;right:-8px;top:120px;
+  width:3px;height:64px;background:#2a2a2a;border-radius:0 2px 2px 0;
+}
+.phone-side-btn-l{
+  position:absolute;left:-8px;top:100px;
+  width:3px;height:40px;background:#2a2a2a;border-radius:2px 0 0 2px;
+}
+.phone-side-btn-l2{
+  position:absolute;left:-8px;top:152px;
+  width:3px;height:64px;background:#2a2a2a;border-radius:2px 0 0 2px;
+}
+
+/* ─── CREDIBILITY ────────────────────────────────────────── */
+.diff4{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+.diff{background:#fff;padding:32px;}
+.diff h4{
+  font-size:.77rem;font-weight:500;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--black);margin-bottom:12px;
+}
+.diff p{font-size:.86rem;}
+.checks{display:flex;flex-direction:column;gap:12px;margin-top:40px;}
+.check{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.86rem;color:var(--mid);
+}
+.tick{color:var(--green);font-size:.85rem;flex-shrink:0;margin-top:1px;}
+.team2{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  margin-top:64px;
+}
+.member{background:#fff;padding:40px 32px;}
+.member-name{
+  font-family:'EB Garamond',serif;font-size:1.2rem;
+  color:var(--black);margin-bottom:4px;
+}
+.member-role{
+  display:block;font-size:.68rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--green);margin-bottom:16px;
+}
+.member p{font-size:.86rem;}
+
+/* ─── CTA ────────────────────────────────────────────────── */
+.cta-row{
+  display:grid;grid-template-columns:1fr auto;
+  gap:64px;align-items:center;
+}
+#contact h2{
+  font-family:'EB Garamond',serif;color:#fff;
+  font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:16px;
+}
+#contact p{color:rgba(255,255,255,.45);max-width:440px;}
+.cta-aside{
+  display:flex;flex-direction:column;gap:16px;
+  align-items:flex-start;flex-shrink:0;
+}
+.btn-light{
+  font-size:.78rem;font-weight:500;letter-spacing:.07em;
+  color:var(--black);background:#fff;
+  padding:12px 32px;transition:opacity .18s;white-space:nowrap;
+}
+.btn-light:hover{opacity:.88;}
+.ci-list{display:flex;flex-direction:column;gap:5px;}
+.ci{font-size:.77rem;color:rgba(255,255,255,.3);white-space:nowrap;}
+.ci a{color:rgba(255,255,255,.5);transition:color .18s;}
+.ci a:hover{color:#fff;}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer{
+  background:var(--black);border-top:1px solid rgba(255,255,255,.06);
+  padding:32px 0;
+}
+.foot{
+  max-width:var(--max);margin:0 auto;padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.foot-logo{
+  font-family:'EB Garamond',serif;font-size:.9rem;
+  color:rgba(255,255,255,.35);letter-spacing:.03em;
+}
+.foot-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.foot-links a{font-size:.74rem;color:rgba(255,255,255,.22);transition:color .18s;}
+.foot-links a:hover{color:rgba(255,255,255,.55);}
+.foot-copy{font-size:.72rem;color:rgba(255,255,255,.18);}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:860px){
+  section{padding:72px 0;}
+  #hero{padding-top:calc(60px + 64px);}
+  .nav-links,.nav-btn{display:none;}
+  .hero-row,.aside-layout,.model-head,.plat-header,.cta-row{
+    grid-template-columns:1fr;gap:48px;
+  }
+  .phone-shell{margin:0 auto;}
+  .feat-row{grid-template-columns:1fr 1fr;}
+  .hero-fig{height:220px;}
+  .cards3,.diff4,.team2{grid-template-columns:1fr;}
+  .stats{gap:32px;}
+  .foot{flex-direction:column;text-align:center;}
+  .foot-links{justify-content:center;}
+}
+@media(max-width:480px){
+  .stats{gap:24px;}
+}
+
+/* ─── PLATFORM LAYOUT ────────────────────────────────────── */
+.plat-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:end;margin-bottom:64px;
+}
+.plat-header h2{margin-bottom:0;}
+.plat-header p{margin-bottom:0;}
+
+.mockup-wrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom:64px;
+}
+
+/* ─── PHONE SHELL ─────────────────────────────────────────── */
+.mockup-phone{
+  position:relative;
+  width:320px;
+  flex-shrink:0;
+  background:#111;
+  border-radius:46px;
+  padding:14px;
+  box-shadow:
+    0 0 0 1px #000,
+    0 40px 80px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.mockup-island{
+  position:absolute;
+  top:22px;left:50%;transform:translateX(-50%);
+  width:90px;height:24px;
+  background:#000;border-radius:14px;
+  z-index:10;
+}
+.mockup-btn-r{
+  position:absolute;right:-3px;top:130px;
+  width:3px;height:70px;background:#2a2a2a;border-radius:0 2px 2px 0;
+}
+.mockup-btn-l1{
+  position:absolute;left:-3px;top:110px;
+  width:3px;height:38px;background:#2a2a2a;border-radius:2px 0 0 2px;
+}
+.mockup-btn-l2{
+  position:absolute;left:-3px;top:162px;
+  width:3px;height:66px;background:#2a2a2a;border-radius:2px 0 0 2px;
+}
+
+/* ─── SCREEN ──────────────────────────────────────────────── */
+.mockup-screen{
+  background:#f5f3ed;
+  border-radius:34px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  height:640px;
+  position:relative;
+}
+
+/* ─── TOP BAR ─────────────────────────────────────────────── */
+.mk-topbar{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:44px 18px 10px;
+  background:#fff;
+  flex-shrink:0;
+}
+.mk-greeting{font-size:11px;color:#888;margin-bottom:2px;}
+.mk-title{
+  font-family:'EB Garamond',serif;font-size:24px;
+  font-weight:400;color:#1a2744;line-height:1;
+}
+.mk-topbar-right{display:flex;align-items:center;gap:8px;}
+.mk-bell{font-size:18px;line-height:1;}
+.mk-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#2c5f2d,#0d9488);
+  color:#fff;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;
+}
+
+/* ─── SEARCH ──────────────────────────────────────────────── */
+.mk-search{
+  display:flex;align-items:center;gap:8px;
+  background:#f0ede6;border-radius:12px;
+  padding:10px 14px;margin:10px 16px;
+  flex-shrink:0;
+}
+.mk-search-icon{font-size:14px;opacity:.45;}
+.mk-search-text{font-size:13px;color:#aaa;font-family:'Inter',sans-serif;}
+
+/* ─── PILLS ───────────────────────────────────────────────── */
+.mk-pills{
+  display:flex;gap:7px;padding:4px 16px 10px;
+  overflow:hidden;flex-shrink:0;
+}
+.mk-pill{
+  flex-shrink:0;
+  font-size:11px;font-weight:500;
+  padding:6px 13px;border-radius:20px;
+  border:1.5px solid #e0ddd6;
+  background:#fff;color:#666;
+  font-family:'Inter',sans-serif;
+  white-space:nowrap;
+}
+.mk-pill.active{
+  background:#1a2744;border-color:#1a2744;color:#fff;
+}
+
+/* ─── FEATURED CARD ───────────────────────────────────────── */
+.mk-card{
+  margin:0 16px;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  flex-shrink:0;
+  box-shadow:0 8px 28px rgba(26,39,68,0.18);
+}
+.mk-card-bg{
+  position:relative;
+  height:155px;
+  overflow:hidden;
+}
+.mk-card-bg svg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:block;
+}
+.mk-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.7) 100%);
+}
+.mk-card-body{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:10px 14px 12px;
+}
+.mk-card-tag{
+  display:inline-block;
+  font-size:9px;font-weight:700;letter-spacing:.5px;
+  padding:3px 9px;border-radius:10px;
+  background:rgba(255,255,255,0.18);
+  color:#fff;margin-bottom:5px;
+  font-family:'Inter',sans-serif;
+  backdrop-filter:blur(4px);
+}
+.mk-card-title{
+  font-family:'EB Garamond',serif;
+  font-size:18px;font-weight:700;color:#fff;
+  line-height:1.2;margin-bottom:2px;
+}
+.mk-card-org{font-size:10px;color:rgba(255,255,255,.7);margin-bottom:9px;}
+.mk-card-progress-row{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+}
+.mk-progress-bar{
+  flex:1;height:3px;
+  background:rgba(255,255,255,0.25);border-radius:2px;overflow:hidden;
+}
+.mk-progress-fill{height:100%;background:#fff;border-radius:2px;}
+.mk-progress-pct{font-size:11px;font-weight:700;color:#fff;font-family:'Inter',sans-serif;}
+.mk-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mk-raised{font-size:12px;color:rgba(255,255,255,.85);font-family:'Inter',sans-serif;}
+.mk-raised strong{font-size:15px;font-weight:700;color:#fff;font-family:'EB Garamond',serif;}
+.mk-backers{font-size:9px;color:rgba(255,255,255,.55);margin-top:1px;}
+.mk-invest-btn{
+  background:#fff;color:#1a2744;border:none;
+  padding:8px 18px;border-radius:20px;
+  font-size:11px;font-weight:700;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  box-shadow:0 3px 10px rgba(0,0,0,0.2);
+  white-space:nowrap;
+}
+
+/* ─── DOTS ────────────────────────────────────────────────── */
+.mk-dots{
+  display:flex;justify-content:center;gap:5px;
+  padding:8px 0 4px;flex-shrink:0;
+}
+.mk-dot{width:6px;height:6px;border-radius:50%;background:#ddd;}
+.mk-dot.active{width:18px;border-radius:3px;background:#1a2744;}
+
+/* ─── SCROLLABLE CONTENT ──────────────────────────────────── */
+.mk-scroll{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scrollbar-width:none;
+  padding-bottom:8px;
+}
+.mk-scroll::-webkit-scrollbar{display:none;}
+
+/* ─── SECTION HEADERS ─────────────────────────────────────── */
+.mk-section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px 6px;
+}
+.mk-section-title{
+  font-family:'EB Garamond',serif;font-size:16px;color:#1a2744;
+}
+.mk-see-all{font-size:11px;color:#0d9488;font-family:'Inter',sans-serif;}
+
+/* ─── IMPACT STRIP ────────────────────────────────────────── */
+.mk-impact-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:8px;padding:0 16px;
+}
+.mk-impact-tile{
+  background:#fff;border-radius:12px;
+  padding:10px 6px;text-align:center;
+  box-shadow:0 2px 8px rgba(26,39,68,0.06);
+}
+.mk-it-icon{font-size:16px;margin-bottom:3px;}
+.mk-it-val{
+  font-family:'EB Garamond',serif;font-size:16px;
+  font-weight:700;color:#1a2744;line-height:1;
+}
+.mk-it-lbl{font-size:9px;color:#999;margin-top:2px;font-family:'Inter',sans-serif;}
+
+/* ─── MINI CARDS ROW ──────────────────────────────────────── */
+.mk-mini-row{
+  display:flex;gap:12px;padding:4px 16px 12px;
+  overflow-x:hidden;
+}
+.mk-mini-card{
+  flex-shrink:0;width:120px;
+  background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 10px rgba(26,39,68,0.09);
+}
+.mk-mini-img{
+  height:80px;position:relative;overflow:hidden;
+}
+.mk-mini-img svg{width:100%;height:100%;display:block;}
+.mk-mini-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,0.5) 100%);
+}
+.mk-mini-pct{
+  position:absolute;bottom:5px;left:8px;
+  font-size:12px;font-weight:800;color:#fff;
+  font-family:'EB Garamond',serif;
+}
+.mk-mini-body{padding:8px 10px 10px;}
+.mk-mini-tag{
+  font-size:9px;font-weight:700;letter-spacing:.4px;
+  margin-bottom:3px;font-family:'Inter',sans-serif;
+}
+.mk-mini-name{
+  font-size:11px;font-weight:600;color:#1a2744;
+  line-height:1.3;margin-bottom:6px;font-family:'Inter',sans-serif;
+}
+.mk-mini-bar{height:3px;background:#eee;border-radius:2px;overflow:hidden;}
+.mk-mini-fill{height:100%;border-radius:2px;}
+
+/* ─── NAV BAR ─────────────────────────────────────────────── */
+.mk-nav{
+  display:flex;justify-content:space-around;align-items:center;
+  padding:8px 0 20px;
+  background:#fff;
+  border-top:1px solid #eee;
+  flex-shrink:0;
+}
+.mk-nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:none;border:none;cursor:pointer;
+  padding:6px 14px;
+}
+.mk-nav-icon{font-size:20px;line-height:1;}
+.mk-nav-label{font-size:9px;font-weight:500;color:#999;font-family:'Inter',sans-serif;}
+.mk-nav-item.active .mk-nav-label{color:#1a2744;}
+.mk-nav-item:not(.active) .mk-nav-icon{opacity:.35;}
+
+/* ─── FEATURE TILES ───────────────────────────────────────── */
+.feat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+.feat-item{
+  background:#fff;padding:24px;
+}
+.feat-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--green);margin-bottom:12px;
+}
+.feat-item strong{
+  display:block;font-size:.77rem;font-weight:500;
+  color:var(--ink);margin-bottom:6px;letter-spacing:.02em;
+}
+.feat-item span{font-size:.8rem;color:var(--mid);line-height:1.55;}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:860px){
+  .plat-header{grid-template-columns:1fr;gap:24px;margin-bottom:40px;}
+  .mockup-phone{width:280px;}
+  .mockup-screen{height:560px;}
+  .feat-row{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .feat-row{grid-template-columns:1fr;}
+  .mockup-phone{width:260px;}
+  .mockup-screen{height:520px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a href="#" class="logo">Black Harbor Investments</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#model">Model</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <a href="#contact" class="nav-btn">Partner With Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-row">
+
+      <div>
+        <span class="eyebrow">Impact Investing · Newark, NJ · Est. 2025</span>
+        <h1>Capital that serves<br><em>every</em> community.</h1>
+        <p class="hero-sub">Black Harbor deploys strategic investment into underserved communities — combining hyperlocal research, circular economics, and accessible technology to make impact investing available to all.</p>
+        <div class="actions">
+          <a href="#contact" class="btn-fill">Partner With Us</a>
+          <a href="#model" class="btn-text">Our Approach →</a>
+        </div>
+      </div>
+
+      <div class="hero-fig" aria-hidden="true">
+        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <!-- Grid -->
+          <line x1="0" y1="75"  x2="440" y2="75"  stroke="#e0e0e0" stroke-width="1"/>
+          <line x1="0" y1="150" x2="440" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+          <line x1="0" y1="225" x2="440" y2="225" stroke="#e0e0e0" stroke-width="1"/>
+          <line x1="110" y1="0" x2="110" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+          <line x1="220" y1="0" x2="220" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+          <line x1="330" y1="0" x2="330" y2="300" stroke="#e0e0e0" stroke-width="1"/>
+          <!-- Buildings -->
+          <rect x="18"  y="180" width="36" height="120" fill="#ddd"/>
+          <rect x="58"  y="148" width="28" height="152" fill="#ccc"/>
+          <rect x="90"  y="195" width="40" height="105" fill="#d6d6d6"/>
+          <rect x="136" y="138" width="34" height="162" fill="#c8c8c8"/>
+          <rect x="174" y="172" width="28" height="128" fill="#d2d2d2"/>
+          <rect x="206" y="142" width="46" height="158" fill="#c4c4c4"/>
+          <rect x="256" y="188" width="32" height="112" fill="#d8d8d8"/>
+          <rect x="292" y="158" width="36" height="142" fill="#ccc"/>
+          <rect x="332" y="175" width="42" height="125" fill="#d0d0d0"/>
+          <rect x="378" y="160" width="40" height="140" fill="#c8c8c8"/>
+          <!-- Window dots -->
+          <g fill="#1a4a35" opacity="0.2">
+            <rect x="24"  y="192" width="7" height="9" rx="1"/><rect x="36"  y="192" width="7" height="9" rx="1"/>
+            <rect x="24"  y="208" width="7" height="9" rx="1"/>
+            <rect x="62"  y="160" width="6" height="8" rx="1"/><rect x="72"  y="160" width="6" height="8" rx="1"/>
+            <rect x="62"  y="175" width="6" height="8" rx="1"/>
+            <rect x="142" y="150" width="7" height="9" rx="1"/><rect x="154" y="150" width="7" height="9" rx="1"/>
+            <rect x="142" y="166" width="7" height="9" rx="1"/><rect x="154" y="166" width="7" height="9" rx="1"/>
+            <rect x="212" y="154" width="8" height="10" rx="1"/><rect x="225" y="154" width="8" height="10" rx="1"/>
+            <rect x="238" y="154" width="8" height="10" rx="1"/>
+            <rect x="212" y="171" width="8" height="10" rx="1"/><rect x="238" y="171" width="8" height="10" rx="1"/>
+            <rect x="298" y="170" width="7" height="9" rx="1"/><rect x="310" y="170" width="7" height="9" rx="1"/>
+            <rect x="298" y="186" width="7" height="9" rx="1"/>
+            <rect x="338" y="187" width="8" height="10" rx="1"/><rect x="351" y="187" width="8" height="10" rx="1"/>
+            <rect x="384" y="172" width="7" height="9" rx="1"/><rect x="396" y="172" width="7" height="9" rx="1"/>
+            <rect x="384" y="188" width="7" height="9" rx="1"/>
+          </g>
+          <!-- Growth area fill -->
+          <path d="M18,275 L80,242 L150,214 L220,180 L300,146 L380,114 L440,94 L440,300 L18,300 Z"
+            fill="#1a4a35" opacity="0.07"/>
+          <!-- Growth line -->
+          <polyline points="18,275 80,242 150,214 220,180 300,146 380,114 440,94"
+            stroke="#1a4a35" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Data points -->
+          <circle cx="80"  cy="242" r="3.5" fill="#1a4a35"/>
+          <circle cx="220" cy="180" r="3.5" fill="#1a4a35"/>
+          <circle cx="380" cy="114" r="3.5" fill="#1a4a35"/>
+          <circle cx="440" cy="94"  r="4.5" fill="#1a4a35"/>
+          <!-- Ground -->
+          <line x1="0" y1="292" x2="440" y2="292" stroke="#ddd" stroke-width="1"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="aside-layout">
+      <div>
+        <span class="label">About</span>
+        <h2>Community-first impact investing.</h2>
+      </div>
+      <div>
+        <div class="stack">
+          <p>Black Harbor Investments deploys capital directly into underserved communities using deep local research, a five-step circular economy framework, and our technology platform Communivest — making impact investing accessible to everyone, with no minimum investment required.</p>
+          <p>Traditional ESG funds target large-cap equities. CDFIs lack consumer technology. Crowdfunding platforms skip due diligence. We are the first firm to combine hyperlocal community research, accessible technology, and institutional-grade investment methodology in one integrated platform.</p>
+          <p>Founded in 2025 and headquartered in Newark, NJ — we begin where impact is needed most, then scale.</p>
+        </div>
+        <div class="stats">
+          <div>
+            <div class="stat-n">$1.16T</div>
+            <div class="stat-l">Global impact investing market</div>
+          </div>
+          <div>
+            <div class="stat-n">45M+</div>
+            <div class="stat-l">Americans in food deserts</div>
+          </div>
+          <div>
+            <div class="stat-n">7M+</div>
+            <div class="stat-l">U.S. housing unit shortage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model">
+  <div class="wrap">
+    <div class="model-head">
+      <div>
+        <span class="label">Our Model</span>
+        <h2>Five-step circular economy framework.</h2>
+      </div>
+      <p>Traditional grants create one-time impact. Our circular model ensures capital keeps working within the community — multiplying returns with every cycle and creating self-sustaining economic ecosystems that compound over time.</p>
+    </div>
+    <div class="cards3">
+      <div class="card">
+        <span class="card-n">01</span>
+        <h4>Engage &amp; Educate</h4>
+        <p>Partner with local leaders, residents, and stakeholders to understand real community needs before a single dollar is deployed.</p>
+      </div>
+      <div class="card">
+        <span class="card-n">02</span>
+        <h4>Map Resources</h4>
+        <p>Assess community resource flows, gaps, and opportunities through proprietary hyperlocal research methodology.</p>
+      </div>
+      <div class="card">
+        <span class="card-n">03</span>
+        <h4>Build Networks</h4>
+        <p>Create local partnerships for resource sharing, cooperation, and sustained economic momentum across neighborhoods.</p>
+      </div>
+      <div class="card">
+        <span class="card-n">04</span>
+        <h4>Implement Sustainability</h4>
+        <p>Fund recycling, conservation, and waste reduction programs that permanently lower community costs.</p>
+      </div>
+      <div class="card">
+        <span class="card-n">05</span>
+        <h4>Create Jobs &amp; Growth</h4>
+        <p>Support circular economy enterprises and workforce development for lasting, compounding community prosperity.</p>
+      </div>
+      <div class="card soft">
+        <blockquote>"Capital that stays in the community, working for the community."</blockquote>
+        <cite>— Black Harbor Principle</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PLATFORM -->
+<section id="platform">
+  <div class="wrap">
+
+    <div class="plat-header">
+      <div>
+        <span class="label">The Platform</span>
+        <h2>Communivest — impact investing for everyone.</h2>
+      </div>
+      <p>Browse, fund, and track community projects with real-time impact metrics. No minimum investment. 500+ language support. Anonymous participation option.</p>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="mockup-wrap">
+      <div class="mockup-phone">
+
+        <!-- Device chrome -->
+        <div class="mockup-island"></div>
+        <div class="mockup-btn-r"></div>
+        <div class="mockup-btn-l1"></div>
+        <div class="mockup-btn-l2"></div>
+
+        <!-- Screen -->
+        <div class="mockup-screen">
+
+          <!-- Top bar -->
+          <div class="mk-topbar">
+            <div>
+              <div class="mk-greeting">Good morning 👋</div>
+              <div class="mk-title">Invest</div>
+            </div>
+            <div class="mk-topbar-right">
+              <div class="mk-bell">🔔</div>
+              <div class="mk-avatar">JW</div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="mk-search">
+            <span class="mk-search-icon">🔍</span>
+            <span class="mk-search-text">Search projects, neighborhoods...</span>
+          </div>
+
+          <!-- Category pills -->
+          <div class="mk-pills">
+            <div class="mk-pill active">✦ All</div>
+            <div class="mk-pill">🏠 Housing</div>
+            <div class="mk-pill">🌱 Food</div>
+            <div class="mk-pill">📚 Education</div>
+            <div class="mk-pill">💼 Jobs</div>
+          </div>
+
+          <!-- Featured project card -->
+          <div class="mk-card">
+            <div class="mk-card-bg">
+              <!-- SVG city scene -->
+              <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="citybg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0a1628"/><stop offset="100%" stop-color="#1a2e4a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="360" height="160" fill="url(#citybg)"/>
+                <g fill="#1e3460">
+                  <rect x="0" y="60" width="40" height="100"/><rect x="35" y="40" width="30" height="120"/>
+                  <rect x="60" y="70" width="44" height="90"/><rect x="100" y="30" width="36" height="130"/>
+                  <rect x="130" y="55" width="50" height="105"/><rect x="175" y="35" width="38" height="125"/>
+                  <rect x="208" y="65" width="44" height="95"/><rect x="247" y="42" width="32" height="118"/>
+                  <rect x="274" y="58" width="46" height="102"/><rect x="315" y="38" width="45" height="122"/>
+                </g>
+                <g fill="#ffd080" opacity="0.65">
+                  <rect x="6" y="72" width="6" height="8" rx="1"/><rect x="16" y="72" width="6" height="8" rx="1"/>
+                  <rect x="6" y="86" width="6" height="8" rx="1"/>
+                  <rect x="40" y="52" width="6" height="8" rx="1"/><rect x="50" y="52" width="6" height="8" rx="1"/>
+                  <rect x="106" y="42" width="6" height="8" rx="1"/><rect x="116" y="42" width="6" height="8" rx="1"/>
+                  <rect x="106" y="56" width="6" height="8" rx="1"/>
+                  <rect x="180" y="48" width="6" height="8" rx="1"/><rect x="190" y="48" width="6" height="8" rx="1"/>
+                  <rect x="253" y="54" width="6" height="8" rx="1"/><rect x="263" y="54" width="6" height="8" rx="1"/>
+                  <rect x="320" y="50" width="6" height="8" rx="1"/><rect x="330" y="50" width="6" height="8" rx="1"/>
+                </g>
+                <circle cx="300" cy="28" r="14" fill="rgba(255,248,220,0.85)"/>
+                <rect x="0" y="145" width="360" height="15" fill="#060e18"/>
+              </svg>
+              <div class="mk-card-overlay"></div>
+            </div>
+            <div class="mk-card-body">
+              <div class="mk-card-tag">HOUSING</div>
+              <div class="mk-card-title">Newark Affordable Housing</div>
+              <div class="mk-card-org">📍 Ironbound CDC · Newark, NJ</div>
+              <div class="mk-card-progress-row">
+                <div class="mk-progress-bar"><div class="mk-progress-fill" style="width:62%"></div></div>
+                <span class="mk-progress-pct">62%</span>
+              </div>
+              <div class="mk-card-footer">
+                <div>
+                  <div class="mk-raised"><strong>$124,500</strong> raised</div>
+                  <div class="mk-backers">342 backers · $200,000 goal</div>
+                </div>
+                <button class="mk-invest-btn">Invest Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dots -->
+          <div class="mk-dots">
+            <div class="mk-dot active"></div>
+            <div class="mk-dot"></div>
+            <div class="mk-dot"></div>
+            <div class="mk-dot"></div>
+          </div>
+
+          <div class="mk-scroll">
+          <!-- Impact strip -->
+          <div class="mk-section-header">
+            <span class="mk-section-title">Your Impact</span>
+            <span class="mk-see-all">View portfolio →</span>
+          </div>
+          <div class="mk-impact-strip">
+            <div class="mk-impact-tile"><div class="mk-it-icon">💰</div><div class="mk-it-val">$0</div><div class="mk-it-lbl">Invested</div></div>
+            <div class="mk-impact-tile"><div class="mk-it-icon">🏠</div><div class="mk-it-val">0</div><div class="mk-it-lbl">Housed</div></div>
+            <div class="mk-impact-tile"><div class="mk-it-icon">💼</div><div class="mk-it-val">0</div><div class="mk-it-lbl">Jobs</div></div>
+            <div class="mk-impact-tile"><div class="mk-it-icon">🗺️</div><div class="mk-it-val">0</div><div class="mk-it-lbl">Hoods</div></div>
+          </div>
+
+          <!-- Trending -->
+          <div class="mk-section-header" style="margin-top:12px">
+            <span class="mk-section-title">Trending</span>
+            <span class="mk-see-all">See all</span>
+          </div>
+          <div class="mk-mini-row">
+            <!-- Mini card 1 -->
+            <div class="mk-mini-card">
+              <div class="mk-mini-img">
+                <svg viewBox="0 0 140 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <rect width="140" height="90" fill="#1a2744"/>
+                  <g fill="#243b6b"><rect x="0" y="25" width="20" height="65"/><rect x="18" y="15" width="16" height="75"/><rect x="32" y="30" width="22" height="60"/><rect x="52" y="10" width="18" height="80"/><rect x="68" y="22" width="20" height="68"/><rect x="86" y="14" width="22" height="76"/><rect x="106" y="28" width="16" height="62"/><rect x="120" y="18" width="20" height="72"/></g>
+                  <g fill="#ffd080" opacity="0.6"><rect x="3" y="32" width="5" height="7" rx="1"/><rect x="10" y="32" width="5" height="7" rx="1"/><rect x="21" y="22" width="5" height="7" rx="1"/><rect x="55" y="18" width="5" height="7" rx="1"/><rect x="63" y="18" width="5" height="7" rx="1"/><rect x="90" y="22" width="5" height="7" rx="1"/><rect x="98" y="22" width="5" height="7" rx="1"/></g>
+                  <rect x="0" y="76" width="140" height="14" fill="#060e18"/>
+                  <rect x="0" y="80" width="140" height="3" fill="#ffd080" opacity="0.06"/>
+                </svg>
+                <div class="mk-mini-overlay"></div>
+                <span class="mk-mini-pct">62%</span>
+              </div>
+              <div class="mk-mini-body">
+                <div class="mk-mini-tag" style="color:#1a2744">HOUSING</div>
+                <div class="mk-mini-name">Newark Housing</div>
+                <div class="mk-mini-bar"><div class="mk-mini-fill" style="width:62%;background:#1a2744"></div></div>
+              </div>
+            </div>
+            <!-- Mini card 2 -->
+            <div class="mk-mini-card">
+              <div class="mk-mini-img">
+                <svg viewBox="0 0 140 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <defs><linearGradient id="farmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="55%" stop-color="#a8d8a8"/><stop offset="100%" stop-color="#2c6018"/></linearGradient></defs>
+                  <rect width="140" height="90" fill="url(#farmg)"/>
+                  <rect x="0" y="58" width="140" height="32" fill="#2c6018"/>
+                  <rect x="0" y="65" width="140" height="8" fill="#244e12" opacity="0.7"/>
+                  <rect x="0" y="75" width="140" height="8" fill="#244e12" opacity="0.7"/>
+                  <g fill="#4aa832" opacity="0.9"><circle cx="10" cy="64" r="5"/><circle cx="24" cy="64" r="4"/><circle cx="38" cy="64" r="5"/><circle cx="52" cy="64" r="4"/><circle cx="66" cy="64" r="5"/><circle cx="80" cy="64" r="4"/><circle cx="94" cy="64" r="5"/><circle cx="108" cy="64" r="4"/><circle cx="122" cy="64" r="5"/><circle cx="136" cy="64" r="4"/></g>
+                  <rect x="82" y="28" width="46" height="36" fill="#8b2500"/>
+                  <polygon points="76,28 105,14 134,28" fill="#6b1800"/>
+                  <circle cx="42" cy="18" r="12" fill="#ffd850" opacity="0.9"/>
+                </svg>
+                <div class="mk-mini-overlay"></div>
+                <span class="mk-mini-pct">67%</span>
+              </div>
+              <div class="mk-mini-body">
+                <div class="mk-mini-tag" style="color:#2c5f2d">FOOD</div>
+                <div class="mk-mini-name">Bed-Stuy Farm</div>
+                <div class="mk-mini-bar"><div class="mk-mini-fill" style="width:67%;background:#2c5f2d"></div></div>
+              </div>
+            </div>
+            <!-- Mini card 3 -->
+            <div class="mk-mini-card">
+              <div class="mk-mini-img">
+                <svg viewBox="0 0 140 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                  <defs><linearGradient id="mktg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d9488"/><stop offset="100%" stop-color="#065a82"/></linearGradient></defs>
+                  <rect width="140" height="90" fill="url(#mktg)"/>
+                  <rect x="4" y="40" width="38" height="50" fill="#e0365f" opacity="0.9"/>
+                  <rect x="4" y="32" width="40" height="12" fill="#ff6b8a"/>
+                  <rect x="52" y="35" width="36" height="55" fill="#2c5f2d" opacity="0.9"/>
+                  <rect x="52" y="27" width="38" height="12" fill="#4a9e45"/>
+                  <rect x="98" y="42" width="38" height="48" fill="#1a2744" opacity="0.9"/>
+                  <rect x="98" y="34" width="40" height="12" fill="#2a3f72"/>
+                  <g fill="rgba(255,255,255,0.25)"><rect x="10" y="55" width="8" height="14"/><rect x="22" y="55" width="8" height="14"/><rect x="58" y="50" width="8" height="12"/><rect x="70" y="50" width="8" height="12"/><rect x="104" y="57" width="8" height="12"/><rect x="116" y="57" width="8" height="12"/></g>
+                  <g fill="#ffd080" opacity="0.9"><circle cx="12" cy="28" r="2.5"/><circle cx="24" cy="26" r="2.5"/><circle cx="36" cy="28" r="2.5"/><circle cx="48" cy="26" r="2.5"/><circle cx="60" cy="28" r="2.5"/><circle cx="72" cy="26" r="2.5"/><circle cx="84" cy="28" r="2.5"/><circle cx="96" cy="26" r="2.5"/><circle cx="108" cy="28" r="2.5"/><circle cx="120" cy="26" r="2.5"/><circle cx="132" cy="28" r="2.5"/></g>
+                </svg>
+                <div class="mk-mini-overlay"></div>
+                <span class="mk-mini-pct">59%</span>
+              </div>
+              <div class="mk-mini-body">
+                <div class="mk-mini-tag" style="color:#0d9488">JOBS</div>
+                <div class="mk-mini-name">Halsey St. Fund</div>
+                <div class="mk-mini-bar"><div class="mk-mini-fill" style="width:59%;background:#0d9488"></div></div>
+              </div>
+            </div>
+          </div>
+
+          </div><!-- /mk-scroll -->
+
+          <!-- Nav bar -->
+          <div class="mk-nav">
+            <button class="mk-nav-item active">
+              <span class="mk-nav-icon">🏠</span>
+              <span class="mk-nav-label">Invest</span>
+            </button>
+            <button class="mk-nav-item">
+              <span class="mk-nav-icon">📈</span>
+              <span class="mk-nav-label">Portfolio</span>
+            </button>
+            <button class="mk-nav-item">
+              <span class="mk-nav-icon">📋</span>
+              <span class="mk-nav-label">Bulletin</span>
+            </button>
+            <button class="mk-nav-item">
+              <span class="mk-nav-icon">💬</span>
+              <span class="mk-nav-label">Chat</span>
+            </button>
+          </div>
+
+        </div><!-- /mockup-screen -->
+      </div><!-- /mockup-phone -->
+    </div><!-- /mockup-wrap -->
+
+    <!-- Feature tiles below phone -->
+    <div class="feat-row">
+      <div class="feat-item">
+        <div class="feat-dot"></div>
+        <strong>Impact Hub</strong>
+        <span>Browse and fund projects with live progress tracking and one-tap investment.</span>
+      </div>
+      <div class="feat-item">
+        <div class="feat-dot"></div>
+        <strong>Portfolio Dashboard</strong>
+        <span>Track every dollar and its real-world impact — people housed, jobs created.</span>
+      </div>
+      <div class="feat-item">
+        <div class="feat-dot"></div>
+        <strong>Community Bulletin</strong>
+        <span>Local events and news keeping investors connected to their communities.</span>
+      </div>
+      <div class="feat-item">
+        <div class="feat-dot"></div>
+        <strong>Communichat</strong>
+        <span>A social space where investors and neighbors share updates and milestones.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TEAM + CREDIBILITY -->
+<section id="team">
+  <div class="wrap">
+    <div class="aside-layout" style="margin-bottom:64px;">
+      <div>
+        <span class="label">Why Black Harbor</span>
+        <h2>Built different by design.</h2>
+      </div>
+      <div>
+        <div class="diff4">
+          <div class="diff">
+            <h4>Hyperlocal Research</h4>
+            <p>Every investment informed by direct engagement with residents and local organizations — not aggregate data models.</p>
+          </div>
+          <div class="diff">
+            <h4>No Minimum Investment</h4>
+            <p>We remove the accredited-investor gatekeeping that has historically excluded the communities we serve.</p>
+          </div>
+          <div class="diff">
+            <h4>Circular Returns</h4>
+            <p>Capital structured to remain and multiply within the community — not extracted by outside interests after deployment.</p>
+          </div>
+          <div class="diff">
+            <h4>Integrated Technology</h4>
+            <p>The only platform combining institutional due diligence, real-time tracking, and community social tools in one product.</p>
+          </div>
+        </div>
+        <div class="checks">
+          <div class="check"><span class="tick">✓</span> Institutional-grade due diligence on every project</div>
+          <div class="check"><span class="tick">✓</span> Anonymous participation option for investors</div>
+          <div class="check"><span class="tick">✓</span> Real-time impact measurement and public reporting</div>
+          <div class="check"><span class="tick">✓</span> Community advisory board on every deployment</div>
+          <div class="check"><span class="tick">✓</span> Six diversified revenue streams for firm stability</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team2">
+      <div class="member">
+        <div class="member-name">Keon Modeste</div>
+        <span class="member-role">Founder &amp; CEO</span>
+        <p>7+ years in impact investing with deep expertise in leveraging financial resources for sustainable community development — from funding social enterprises to environmental sustainability. Leads overall strategy, external partnerships, and long-term vision.</p>
+      </div>
+      <div class="member">
+        <div class="member-name">Brianna Lackwood</div>
+        <span class="member-role">Co-Founder</span>
+        <p>7+ years in food security and historical preservation within minority communities. Expert in cultural heritage, equitable resource access, and community empowerment. Leads community engagement strategy, impact measurement, and local organization partnerships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-row">
+      <div>
+        <h2>Join us in building economic justice.</h2>
+        <p>We are seeking strategic partners and investors who share our vision of community-powered economic development. Your capital will directly fund platform development, community research, and initial investment fund capitalization.</p>
+      </div>
+      <div class="cta-aside">
+        <a href="mailto:blackharborinvestments@gmail.com" class="btn-light">Contact Us</a>
+        <div class="ci-list">
+          <div class="ci">Keon Modeste — Founder &amp; CEO</div>
+          <div class="ci"><a href="mailto:blackharborinvestments@gmail.com">blackharborinvestments@gmail.com</a></div>
+          <div class="ci"><a href="https://blackharborinvestments.com" target="_blank" rel="noopener">blackharborinvestments.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <span class="foot-logo">Black Harbor Investments LLC</span>
+    <ul class="foot-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#model">Model</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="foot-copy">© 2025 Black Harbor Investments LLC</span>
+  </div>
+</footer>
+
+</body>
+</html>
